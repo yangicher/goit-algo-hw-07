@@ -22,10 +22,12 @@ def search(root, key):
     return search(root.right, key)
 
 def min_value_node(node):
+    if root is None:
+        return None
     current = node
     while current.left is not None:
         current = current.left
-    return current
+    return current.val
 
 def max_value_node(root):
     if root is None:
@@ -45,5 +47,10 @@ for key in keys:
 print(root)
 
 max_value = max_value_node(root)
+min_value = min_value_node(root)
+
 if max_value is not None:
     print(f"Max: {max_value}")
+
+if min_value is not None:
+    print(f"Min: {min_value}")
